@@ -309,3 +309,162 @@ select:focus {
     height: 1050px !important;
   }
 }
+/* ==========================================
+   MOBILE ONLY RESPONSIVE FIXES
+   Desktop untouched
+========================================== */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  main {
+    overflow-x: hidden;
+  }
+
+  header {
+    height: auto;
+  }
+
+  header > div {
+    height: 72px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  header img {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  header span {
+    font-size: 1.35rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 3rem !important;
+    line-height: 1.05 !important;
+  }
+
+  h2 {
+    font-size: 2.4rem !important;
+    line-height: 1.15 !important;
+  }
+
+  p {
+    word-break: normal;
+  }
+
+  /* HERO MOBILE FIX */
+  section:first-of-type {
+    min-height: 100vh !important;
+    padding-top: 90px !important;
+    background-position: center top !important;
+    background-size: cover !important;
+  }
+
+  section:first-of-type > div:nth-child(2) {
+    padding-top: 70px !important;
+  }
+
+  section:first-of-type .max-w-3xl {
+    max-width: 100% !important;
+  }
+
+  section:first-of-type h1 {
+    max-width: 100% !important;
+  }
+
+  section:first-of-type p {
+    max-width: 100% !important;
+  }
+
+  section:first-of-type .grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  section:first-of-type a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ABOUT MOBILE FIX */
+  #about {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  #about .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #about .relative.h-\[720px\] {
+    height: 480px !important;
+  }
+
+  #about img {
+    object-position: center top !important;
+  }
+
+  /* SERVICES / GALLERY */
+  #services,
+  #gallery,
+  #booking,
+  #contact {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  #gallery .h-\[460px\] {
+    height: 420px !important;
+  }
+
+  #booking iframe {
+    height: 1050px !important;
+  }
+
+  #contact .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer {
+    padding-bottom: 100px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.55rem !important;
+  }
+
+  h2 {
+    font-size: 2.15rem !important;
+  }
+
+  section:first-of-type {
+    background-position: 62% top !important;
+  }
+
+  section:first-of-type > div:nth-child(2) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  #about .relative.h-\[720px\] {
+    height: 420px !important;
+  }
+
+  #gallery .h-\[460px\] {
+    height: 380px !important;
+  }
+}
