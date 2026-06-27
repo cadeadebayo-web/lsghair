@@ -85,14 +85,14 @@ export default function Header() {
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[999] bg-[#140006] pt-28 px-8 md:hidden">
-          <nav className="flex flex-col gap-8">
+        <div className="fixed inset-0 z-[999] bg-[#140006] pt-24 px-8 md:hidden">
+          <nav className="flex flex-col gap-5">
             {links.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-3xl font-bold border-b border-[#D4AF37]/20 pb-6"
+                className="text-white text-xl font-semibold tracking-wide border-b border-[#D4AF37]/15 pb-5 hover:text-[#D4AF37] transition-colors duration-300"
               >
                 {link.name}
               </a>
