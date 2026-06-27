@@ -29,7 +29,7 @@ export default function About() {
 
           <div className="absolute -bottom-7 left-6 right-6 rounded-[28px] border border-[#D4AF37]/25 bg-[#140006]/92 p-6 text-white shadow-2xl backdrop-blur md:-right-8 md:left-auto md:w-72">
             <p className="text-sm uppercase tracking-[0.28em] text-[#D4AF37]">Premium Care</p>
-            <h3 className="mt-2 font-serif text-4xl text-white">10+ Years</h3>
+            <h3 className="mt-2 font-serif text-4xl text-white">3+ Years</h3>
             <p className="mt-2 text-sm leading-6 text-white/75">Creating polished, occasion-ready and confidence-building hairstyles.</p>
           </div>
         </motion.div>
@@ -65,7 +65,7 @@ export default function About() {
 
           <div className="mt-12 grid grid-cols-2 gap-5">
             {[
-              ["500+", "Happy Clients"],
+              ["50+", "Happy Clients"],
               ["★★★★★", "Luxury Service"],
               ["Premium", "Hair Products"],
               ["Colchester", "Essex Salon"],
