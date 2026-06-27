@@ -49,8 +49,7 @@ export default function Hero() {
             transition={{ delay: 0.22, duration: 0.8 }}
             className="mt-8 max-w-2xl text-lg leading-9 text-white/82 md:text-xl"
           >
-            Premium hairstyling for every occasion. Experience beautiful craftsmanship,
-            luxury finishes and effortless online booking.
+            Premium hairstyling for every occasion.
           </motion.p>
 
           <motion.div
