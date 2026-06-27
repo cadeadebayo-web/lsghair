@@ -18,74 +18,81 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
-    handleScroll();
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
+
   return (
-    <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-        scrolled || menuOpen
-          ? "bg-[#140006]/92 shadow-2xl backdrop-blur-2xl border-b border-[#D4AF37]/20"
-          : "bg-gradient-to-b from-[#140006]/65 to-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-10">
-        <a href="#" className="group flex items-center gap-3" aria-label="LSGHair home">
-          <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-[#D4AF37]/35 bg-[#24000C]/80 shadow-xl">
+    <>
+      <header
+        className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
+          scrolled || menuOpen
+            ? "bg-[#140006]/95 backdrop-blur-2xl border-b border-[#D4AF37]/20 shadow-2xl"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 h-20">
+          <a href="#" className="flex items-center gap-3">
             <Image
               src="/images/logo.png"
               alt="LSGHair Logo"
-              fill
+              width={55}
+              height={55}
               priority
-              sizes="48px"
-              className="object-cover opacity-90 transition duration-500 group-hover:scale-110"
+              className="rounded-full"
             />
-          </span>
 
-          <span className="font-serif text-3xl font-bold tracking-[0.08em] bg-gradient-to-r from-[#F8E39A] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-            LSGHair
-          </span>
-        </a>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="relative text-sm font-medium tracking-wide text-white/90 transition-all duration-300 after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 hover:text-[#F8E39A] hover:after:w-full"
-            >
-              {link.name}
-            </a>
-          ))}
-
-          <a
-            href="#booking"
-            className="rounded-full bg-gradient-to-r from-[#F8E39A] via-[#D4AF37] to-[#B8860B] px-8 py-3 text-sm font-extrabold text-[#24000C] shadow-[0_14px_35px_rgba(212,175,55,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_rgba(212,175,55,0.33)]"
-          >
-            Book Appointment
+            <span className="text-3xl font-serif font-bold tracking-[0.08em] bg-gradient-to-r from-[#F8E39A] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
+              LSGHair
+            </span>
           </a>
-        </nav>
 
-        <button
-          className="md:hidden rounded-full border border-[#D4AF37]/25 bg-white/5 p-2 text-white backdrop-blur"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <HiX size={30} /> : <HiMenu size={30} />}
-        </button>
-      </div>
-
-      {menuOpen && (
-        <div className="md:hidden border-t border-[#D4AF37]/20 bg-[#140006]/97 px-6 py-7 shadow-2xl backdrop-blur-2xl">
-          <div className="space-y-4">
+          <nav className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block rounded-2xl px-4 py-3 text-lg font-semibold text-white transition hover:bg-white/5 hover:text-[#F8E39A]"
+                className="relative text-white hover:text-[#F8E39A] transition-all duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {link.name}
+              </a>
+            ))}
+
+            <a
+              href="#booking"
+              className="px-8 py-3 rounded-full font-semibold text-[#24000C] bg-gradient-to-r from-[#F4D77B] via-[#D4AF37] to-[#B8860B] shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              Book Appointment
+            </a>
+          </nav>
+
+          <button
+            className="md:hidden text-white z-[1002]"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Open menu"
+          >
+            {menuOpen ? <HiX size={36} /> : <HiMenu size={34} />}
+          </button>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-[999] bg-[#140006] pt-28 px-8 md:hidden">
+          <nav className="flex flex-col gap-8">
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
                 onClick={() => setMenuOpen(false)}
+                className="text-white text-3xl font-bold border-b border-[#D4AF37]/20 pb-6"
               >
                 {link.name}
               </a>
@@ -94,13 +101,13 @@ export default function Header() {
             <a
               href="#booking"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 block rounded-full bg-gradient-to-r from-[#F8E39A] via-[#D4AF37] to-[#B8860B] py-4 text-center font-extrabold text-[#24000C]"
+              className="mt-6 text-center rounded-full bg-gradient-to-r from-[#F8E39A] via-[#D4AF37] to-[#B8860B] py-5 text-[#24000C] text-xl font-bold shadow-2xl"
             >
               Book Appointment
             </a>
-          </div>
+          </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

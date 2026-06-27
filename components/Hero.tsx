@@ -81,8 +81,8 @@ export default function Hero() {
             className="mt-14 grid max-w-xl grid-cols-3 gap-4"
           >
             {[
-              ["10+", "Years Experience"],
-              ["500+", "Happy Clients"],
+              ["3+", "Years Experience"],
+              ["50+", "Happy Clients"],
               ["★★★★★", "Luxury Service"],
             ].map(([value, label]) => (
               <div key={label} className="rounded-3xl border border-[#D4AF37]/20 bg-white/[0.06] p-4 backdrop-blur-md">
